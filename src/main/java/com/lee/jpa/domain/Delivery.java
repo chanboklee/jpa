@@ -5,27 +5,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
-public class Member {
+public class Delivery {
 
     @Id
     @GeneratedValue
-    @Column(name = "member_id")
+    @Column(name = "delivery_id")
     private Long id;
-    private String username;
+
+    @OneToOne(mappedBy = "delivery")
+    private Order order;
 
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "member")
-    private List<Order> orders = new ArrayList<>();
-
-    public Member(String username){
-        this.username = username;
-    }
+    @Enumerated(EnumType.STRING)
+    private DeliveryStatus status;
 }
