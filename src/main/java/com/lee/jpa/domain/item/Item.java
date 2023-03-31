@@ -1,5 +1,6 @@
 package com.lee.jpa.domain.item;
 
+import com.lee.jpa.domain.Category;
 import com.lee.jpa.domain.OrderItem;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -27,5 +28,8 @@ public abstract class Item {
 
     @OneToMany(mappedBy = "item")
     private List<OrderItem> orderItems = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "items")
+    private List<Category> categories = new ArrayList<>();
 
 }
