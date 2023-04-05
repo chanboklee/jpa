@@ -28,4 +28,8 @@ public class Delivery {
     public void setOrder(Order order){
         this.order = order;
     }
+
+    public Delivery(Address address) {
+        this.address = address;
+    }
 }
