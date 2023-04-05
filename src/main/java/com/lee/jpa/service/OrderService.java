@@ -37,4 +37,9 @@ public class OrderService {
         orderRepository.save(order);
         return order.getId();
     }
+
+    public void cancelOrder(Long orderId){
+        Order order = orderRepository.fineOne(orderId);
+        order.cancel();
+    }
 }
