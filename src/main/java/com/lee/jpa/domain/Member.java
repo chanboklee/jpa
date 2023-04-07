@@ -29,4 +29,9 @@ public class Member {
         this.username = username;
     }
 
+    public Member(String username, Address address){
+        this.username = username;
+        this.address = address;
+    }
+
 }

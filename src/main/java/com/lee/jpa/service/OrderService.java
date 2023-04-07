@@ -38,8 +38,11 @@ public class OrderService {
         return order.getId();
     }
 
+    @Transactional
     public void cancelOrder(Long orderId){
+        // 주문 엔티티 조회
         Order order = orderRepository.fineOne(orderId);
+        // 주문 취소
         order.cancel();
     }
 }
