@@ -1,6 +1,9 @@
 package com.lee.jpa.repository;
 
+import com.lee.jpa.domain.Address;
 import com.lee.jpa.domain.Order;
+import com.lee.jpa.domain.OrderStatus;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
@@ -8,6 +11,7 @@ import org.springframework.util.StringUtils;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
