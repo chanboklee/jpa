@@ -6,6 +6,8 @@ import com.lee.jpa.domain.OrderItem;
 import com.lee.jpa.domain.OrderStatus;
 import com.lee.jpa.repository.OrderRepository;
 import com.lee.jpa.repository.OrderSearch;
+import com.lee.jpa.repository.order.query.OrderQueryDto;
+import com.lee.jpa.repository.order.query.OrderQueryRepository;
 import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +24,7 @@ import java.util.stream.Collectors;
 public class OrderApiController {
 
     private final OrderRepository orderRepository;
+    private final OrderQueryRepository orderQueryRepository;
 
     @GetMapping("/api/v1/orders")
     public List<Order> ordersV1(){
@@ -66,6 +69,11 @@ public class OrderApiController {
                 .collect(Collectors.toList());
 
         return result;
+    }
+
+    @GetMapping("/api/v4/orders")
+    public List<OrderQueryDto> ordersV4(){
+        return orderQueryRepository.findOrderQueryDto();
     }
 
     @Getter
